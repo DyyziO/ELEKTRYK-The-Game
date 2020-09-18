@@ -14,7 +14,7 @@ public class Unwalkable : MonoBehaviour
     void Start()
     {
         grid = FindObjectOfType<CreateGrid>();
-        SnapToGrid(transform.position);
+        position = Utils.SnapToGrid(transform.position);
         SetUnwalkable();
         for (int i = position.x; i < position.x + width; i++)
         {
@@ -24,13 +24,7 @@ public class Unwalkable : MonoBehaviour
             }
         }
     }
-    public void SnapToGrid(Vector2 position)
-    {
-        
-        this.position.x = Convert.ToInt32(position.x);
-        this.position.y = Convert.ToInt32(position.y);
-        
-    }
+    
     private void SetUnwalkable() { 
         for(int i = position.x; i < position.x + width; i++)
         {

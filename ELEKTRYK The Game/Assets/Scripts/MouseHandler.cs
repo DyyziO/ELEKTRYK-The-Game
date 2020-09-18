@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MouseHandler : MonoBehaviour
@@ -14,8 +15,8 @@ public class MouseHandler : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log("X: " + Convert.ToInt32(mousePos.x) + "Y: " + Convert.ToInt32(mousePos.y));
+            int2 mousePos = Utils.SnapToGrid(mainCamera.ScreenToWorldPoint(Input.mousePosition));
+            Debug.Log("X: " + mousePos.x + "Y: " + mousePos.y);
         }
     }
 }
